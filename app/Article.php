@@ -4,8 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Article extends Model
+
+class Article extends Model implements SluggableInterface
 {
+
     protected $table = "Articles";
 
     protected $fillable = ['title','content','category_id','user_id'];
