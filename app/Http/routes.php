@@ -31,11 +31,10 @@ Route::get('articles/{nombre?}', function ($nombre = "empty"){
 
 /*se pueden crear grupos de rutas de la siguiente manera*/
 
-Route::group(['prefix'=>'articles_list'],function(){
-	Route::get('views/{article?}', function ($article = "empty"){   
-		echo $article;
-	});
+Route::group(['prefix'=>'articles'],function(){
+	Route::get('view/{id}',[
+		'uses'=>'TestController@view',    /*El arroba indica el metodo que se utiliza de ese controlador*/
+		'as'=>'articlesView'
+	]);
 });
-
-
 
