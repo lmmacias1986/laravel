@@ -19,22 +19,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/admin', function () {
+    return view('welcome');
+});
+
+Route::group(['prefix'=>'admin'],function(){
+	Route::resource('users','UsersController');
+});
+
 /*Las rutas permiten indicar por medio de una palabra despues de la url a donde quiero ir, y tambien les puedo colocar variables
 /sin variable Route::get('articles', function (){   ejemplo= localhost/articles
 /con variable Route::get('articles/{nombre?}', function ($nombre = "empty"){   ejemplo= localhost/articles/crear
 */
-
-Route::get('articles/{nombre?}', function ($nombre = "empty"){   
-	echo "Esta es la funcion de articulos" . $nombre;
-});
-
-
-/*se pueden crear grupos de rutas de la siguiente manera*/
-
-Route::group(['prefix'=>'articles'],function(){
-	Route::get('view/{id}',[
-		'uses'=>'TestController@view',    /*El arroba indica el metodo que se utiliza de ese controlador*/
-		'as'=>'articlesView'
-	]);
-});
-

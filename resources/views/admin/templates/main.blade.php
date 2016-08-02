@@ -8,11 +8,18 @@
 	<script src="{{ asset('/js/jquery/jquery-3.1.0.min.js') }}" type="text/javascript" charset="utf-8" async defer></script>
 	<script src="{{ asset('/css/bootstrap/js/bootstrap.js') }}" type="text/javascript" charset="utf-8" async defer></script>
 </head>
-<body>
-	@include('admin.templates.partials.nav')
-	
-	<section>
-		@yield('content')
-	</section>
+<body>	
+	<div class='container'>
+		@include('admin.templates.partials.nav')
+		<hr>
+		<section>
+			<div class="panel panel-default">
+			  	<div class="panel-heading">@yield('title')</div>
+			  	<div class="panel-body">
+				    @yield('content')
+				</div>
+			</div>						
+		</section>
+	</div>
 </body>
 </html>
