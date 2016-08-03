@@ -28,7 +28,7 @@
 						@endif						
 						</td>
 					<td>						
-						<a href="">
+						<a href="{{ route('admin.users.destroy',$user->id) }}" onclick="return confirm('Esta seguro de eliminar este usuario?')">
 							<span class="glyphicon glyphicon-trash "></span>
 						</a>
 						 |  

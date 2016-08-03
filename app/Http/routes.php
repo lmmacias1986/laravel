@@ -25,6 +25,10 @@ Route::get('/admin', function () {
 
 Route::group(['prefix'=>'admin'],function(){
 	Route::resource('users','UsersController');
+	Route::get('users/{id}/destroy',[
+		'uses' => 'UsersController@destroy',
+		'as' => 'admin.users.destroy'
+		]);
 });
 
 /*Las rutas permiten indicar por medio de una palabra despues de la url a donde quiero ir, y tambien les puedo colocar variables
