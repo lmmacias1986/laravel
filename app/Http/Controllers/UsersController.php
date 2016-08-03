@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\User;
 use laracasts\Flash\Flash;
+use App\Http\Requests\UserRequest;
 
 class UsersController extends Controller
 {
@@ -17,10 +18,10 @@ class UsersController extends Controller
     {
     	return view('admin.users.create');
     }
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {        
     	$user = new User($request->all());
-        $user->password = bcrypt($request->password); 
+        $user->password = bcrypt($request->password);
         $user->save();
 
         flash("Se ha registrado el usuario de forma exitosa", 'success');
