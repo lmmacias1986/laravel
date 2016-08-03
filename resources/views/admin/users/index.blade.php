@@ -32,7 +32,7 @@
 							<span class="glyphicon glyphicon-trash "></span>
 						</a>
 						 |  
-						<a href="">
+						<a href="{{ route('admin.users.edit',$user->id) }}">
 							<span class="glyphicon glyphicon-pencil "></span>
 						</a>
 					</td>
