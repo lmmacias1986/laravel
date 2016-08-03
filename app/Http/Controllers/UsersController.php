@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\User;
+use laracasts\Flash\Flash;
 
 class UsersController extends Controller
 {
@@ -21,7 +22,10 @@ class UsersController extends Controller
     	$user = new User($request->all());
         $user->password = bcrypt($request->password); 
         $user->save();
-        return UsersController::index();
+
+        flash("Se ha registrado el usuario de forma exitosa", 'success');
+
+        return redirect()->route('admin.users.index');
     }
     public function show($id)
     {
