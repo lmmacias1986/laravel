@@ -3,7 +3,7 @@
 	  <li role="presentation"><a href="/admin">Inicio</a></li>
 	  <li role="presentation"><a href="{{ route('admin.users.index') }}">Usuarios</a></li>
 	  <li role="presentation"><a href="{{ route('admin.categories.index') }}">Categorias</a></li>
-	  <li role="presentation"><a href="#">Articulos</a></li>
+	  <li role="presentation"><a href="{{ route('admin.articles.index') }}">Articulos</a></li>
 	  <li role="presentation"><a href="{{ route('admin.tags.index') }}">Tags</a></li>
 	</ul>
 @endif

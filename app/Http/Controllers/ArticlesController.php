@@ -61,8 +61,15 @@ class ArticlesController extends Controller
     }
    	public function edit($id)
     {
-    	$articulo = Article::find($id);
-        return view('admin.articles.edit')->with('articulo',$articulo);
+    	$categories = Category::orderby('name','ASC')->lists('name','id');
+        $tags = Tag::orderby('name','ASC')->lists('name','id');
+        //$tags = Article::tags('name','ASC')->lists('name','id');
+
+        $articles = Article::find($id);
+        return view('admin.articles.edit')
+            ->with('articles',$articles)
+            ->with('categories',$categories)
+            ->with('tags',$tags);
     }
    	public function update(Request $request , $id)
     {
