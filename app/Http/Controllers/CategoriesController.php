@@ -9,7 +9,7 @@ use laracasts\Flash\Flash;
 
 class CategoriesController extends Controller
 {
-     public function index()
+    public function index()
     {
     	$categorias = Category::orderby('id','ASC')->paginate(5);
         return view('admin.categories.index')->with('categorias',$categorias);
