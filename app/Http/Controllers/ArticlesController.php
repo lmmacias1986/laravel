@@ -8,6 +8,7 @@ use App\Tag;
 use App\Image;
 use App\Category;
 use App\Http\Requests;
+use App\Http\Requests\ArticleRequest;
 use laracasts\Flash\Flash;
 use Illuminate\Support\Facades\Redirect;
 
@@ -27,7 +28,7 @@ class ArticlesController extends Controller
             ->with('categories',$categories)
             ->with('tags',$tags);
     }
-    public function store(Request $request)
+    public function store(ArticleRequest $request)
     {        
         //validar si viene una imagen en el articulo
         if ( $request->file('image')){

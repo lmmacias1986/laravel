@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="{{ asset('/css/bootstrap/css/bootstrap.css') }}">
 	<link rel="stylesheet" href="{{ asset('/css/estilos.css') }}">
 	<link rel="stylesheet" href="{{ asset('/pluggins/chosen/chosen.css') }}">
+	<link rel="stylesheet" href="{{ asset('/pluggins/trumbowyg/ui/trumbowyg.css') }}">
 	
 
 	<!-- Fonts -->
@@ -15,7 +16,6 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <style>
         body {
@@ -84,6 +84,7 @@
 	<script src="{{ asset('/js/jquery/jquery-3.1.0.min.js') }}" type="text/javascript" charset="utf-8" async defer></script>
 	<script src="{{ asset('/css/bootstrap/js/bootstrap.js') }}" type="text/javascript" charset="utf-8" async defer></script>
 	<script src="{{ asset('/pluggins/chosen/chosen.jquery.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('/pluggins/trumbowyg/trumbowyg.js') }}" type="text/javascript"></script>
 	@yield('js')
 </body>
 </html>           

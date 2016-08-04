@@ -13,7 +13,7 @@
 		</div>		
 		<div class='form-group col-md-12 col-sm-12 col-xs-12'>
 			{!! Form::label('content','Contenido:') !!}
-			{!! Form::textarea('content', null, ['class'=>'form-control','required','placeholder'=>'Contenido del artículo']) !!}
+			{!! Form::textarea('content', null, ['class'=>'form-control textarea-content','required','placeholder'=>'Contenido del artículo']) !!}
 		</div>		
 		<div class='form-group col-md-4 col-sm-6 col-xs-12'>
 			{!! Form::label('tags','Tags:') !!}
@@ -40,5 +40,8 @@
 			placeholder_text_single: 'Seleccione una categoria.',
 			no_results_text: "Oops, no se encuentra la categoria!"		
 		});
+		$('.textarea-content').trumbowyg([
+			
+		]);
 	</script>
 @endsection
