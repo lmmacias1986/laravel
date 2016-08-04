@@ -57,9 +57,12 @@
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                            </ul>
+                            <ul class="dropdown-menu" role="menu">                              
+                                @if( Auth::user()->type == 'admin')
+                                <li><a href="{{ url('/admin') }}">Administrar</a></li>
+                                @endif
+                                <li><a href="{{ url('/logout') }}">Salir <i class="fa fa-btn fa-sign-out"></i></a></li>
+                            </ul>                                                           
                         </li>
                     @endif
                 </ul>

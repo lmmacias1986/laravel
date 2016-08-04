@@ -21,7 +21,7 @@ class UsersController extends Controller
     public function store(UserRequest $request)
     {        
     	$user = new User($request->all());
-        $user->password = bcrypt($request->clave);
+        $user->password = bcrypt($request->password);
         $user->save();
 
         flash("Se ha registrado el usuario de forma exitosa", 'success');
