@@ -34,6 +34,12 @@ Route::group(['prefix'=>'admin', 'middleware' => 'auth'],function(){
 	Route::get('/', function () {
     	return view('admin.templates.main');
 	});
+
+	Route::resource('tags','TagsController');
+	Route::get('tags/{id}/destroy',[
+		'uses' => 'TagsController@destroy',
+		'as' => 'admin.tags.destroy'
+		]);	
 });
 
 
