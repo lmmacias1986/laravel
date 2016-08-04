@@ -10,9 +10,10 @@ use laracasts\Flash\Flash;
 
 class TagsController extends Controller
 {
-     public function index()
-    {
-    	$tags = Tag::orderby('id','ASC')->paginate(5);
+     public function index(Request $request)
+    {            
+    	$tags = Tag::search($request->name)->orderby('id','ASC')->paginate(5); 
+        //el search es un scope creado en el modelo para validar que si trae datos la url busque esos datos unicamente
         return view('admin.tags.index')->with('tags',$tags);
     }
     public function create()
