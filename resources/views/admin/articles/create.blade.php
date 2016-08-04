@@ -9,7 +9,7 @@
 		</div>		
 		<div class='form-group col-md-4 col-sm-6 col-xs-12'>
 			{!! Form::label('category_id','Categoria:') !!}
-			{!! Form::select('category_id', $categories, null,['class'=>'form-control','placeholder'=>'Categoria','required']) !!}
+			{!! Form::select('category_id', $categories, null,['class'=>'form-control select-category','placeholder'=>'Categoria','required']) !!}
 		</div>		
 		<div class='form-group col-md-12 col-sm-12 col-xs-12'>
 			{!! Form::label('content','Contenido:') !!}
@@ -17,7 +17,7 @@
 		</div>		
 		<div class='form-group col-md-4 col-sm-6 col-xs-12'>
 			{!! Form::label('tags','Tags:') !!}
-			{!! Form::select('tags[]', $tags, null,['class'=>'form-control','multiple','required']) !!}
+			{!! Form::select('tags[]', $tags, null,['class'=>'form-control select-tag','multiple','required']) !!}
 		</div>
 		<div class='form-group col-md-4 col-sm-6 col-xs-12'>
 			{!! Form::label('image','Imagen:') !!}
@@ -28,4 +28,17 @@
 		</div>
 
 	{!! Form::close() !!}
+@endsection
+@section('js')
+	<script>
+		$('.select-tag').chosen({
+			placeholder_text_multiple: 'Seleccione máximo 3 tags.',
+			max_selected_options: 3,
+			no_results_text: "Oops, no se encuentra el tag!"		
+		});
+		$('.select-category').chosen({
+			placeholder_text_single: 'Seleccione una categoria.',
+			no_results_text: "Oops, no se encuentra la categoria!"		
+		});
+	</script>
 @endsection

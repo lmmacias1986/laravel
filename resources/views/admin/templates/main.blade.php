@@ -6,8 +6,8 @@
 	<title>@yield('title','Default') | Administración</title>
 	<link rel="stylesheet" href="{{ asset('/css/bootstrap/css/bootstrap.css') }}">
 	<link rel="stylesheet" href="{{ asset('/css/estilos.css') }}">
-	<script src="{{ asset('/js/jquery/jquery-3.1.0.min.js') }}" type="text/javascript" charset="utf-8" async defer></script>
-	<script src="{{ asset('/css/bootstrap/js/bootstrap.js') }}" type="text/javascript" charset="utf-8" async defer></script>
+	<link rel="stylesheet" href="{{ asset('/pluggins/chosen/chosen.css') }}">
+	
 
 	<!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
@@ -76,10 +76,14 @@
 			  	<div class="panel-body">
 			  		@include('admin.templates.partials.msg_errors')
 			  		@include('flash::message')
-				    @yield('content')				    
+				    @yield('content')
 				</div>
 			</div>						
 		</section>
 	</div>
+	<script src="{{ asset('/js/jquery/jquery-3.1.0.min.js') }}" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="{{ asset('/css/bootstrap/js/bootstrap.js') }}" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="{{ asset('/pluggins/chosen/chosen.jquery.js') }}" type="text/javascript"></script>
+	@yield('js')
 </body>
 </html>           
