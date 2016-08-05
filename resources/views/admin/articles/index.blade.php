@@ -21,6 +21,7 @@
 			<th>ID</th>
 			<th>titulo</th>			
 			<th>Categoria</th>
+			<th>Usuario</th>
 			<th>Fecha Creación</th>
 			<th>Acción</th>
 		</trhead>
@@ -29,8 +30,9 @@
 				<tr>
 					<td>{{ $article->id }}</td>
 					<td>{{ $article->title }}</td>
-					<td>{{ $article->title }}</td>
-					<td>{{ $article->title }}</td>
+					<td>{{ $article->category->name }}</td>
+					<td>{{ $article->user->name }}</td>
+					<td>{{ $article->created_at }}</td>
 					<td>						
 						<a href="{{ route('admin.articles.destroy',$article->id) }}" onclick="return confirm('Esta seguro de eliminar este article?')">
 							<span class="glyphicon glyphicon-trash "></span>

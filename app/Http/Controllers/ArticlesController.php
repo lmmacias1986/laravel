@@ -16,7 +16,12 @@ class ArticlesController extends Controller
 {
     public function index(Request $request)
     {
-    	$articles = Article::search($request->name)->orderby('id','ASC')->paginate(10);
+    	$articles = Article::search($request->name)->orderby('id','ASC')->paginate(5);
+        $articles->each(function($articles){
+            $articles->category;
+            $articles->user;
+            $articles->image;
+        });
         return view('admin.articles.index')->with('articles',$articles);
     }
     public function create()
