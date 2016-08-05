@@ -10,7 +10,8 @@ class Image extends Model
 
     protected $fillable = ['name','article_id'];
 
-    public function article (){
-    	return $this->belongsTo('App\Image');
+    public function article()
+    {
+    	return $this->belongsTo('App\Article');
     }
 }

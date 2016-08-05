@@ -15,11 +15,22 @@
 /GET, POST, PUT, DELETE, RESOURCE
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::group(['prefix'=>'admin', 'middleware' => 'auth'],function(){
+//ruta inicial del proyecto
+
+Route::get('/',[
+	'uses' => 'HomeController@index',
+	'as' => 'home.index'
+]);
+
+/*Route::get('/', ['as'=>'home.index', function () {
+    return view('home.index');
+}]);
+*/
+
+//rutas para las subcarpetas de admin
+
+Route::group(['prefix'=>'admin','middleware' => 'auth'],function(){
 	Route::resource('users','UsersController');
 	Route::get('users/{id}/destroy',[
 		'uses' => 'UsersController@destroy',
@@ -32,7 +43,7 @@ Route::group(['prefix'=>'admin', 'middleware' => 'auth'],function(){
 		'as' => 'admin.categories.destroy'
 		]);	
 	Route::get('/', function () {
-    	return view('admin.templates.main');
+    	return view('admin.index');
 	});
 
 	Route::resource('tags','TagsController');
@@ -46,6 +57,11 @@ Route::group(['prefix'=>'admin', 'middleware' => 'auth'],function(){
 		'uses' => 'ArticlesController@destroy',
 		'as' => 'admin.articles.destroy'
 		]);	
+
+	Route::get('images',[
+		'uses' => 'ImagesController@index',
+		'as' => 'admin.images.index'
+		]);	
 });
 
 
@@ -53,6 +69,8 @@ Route::group(['prefix'=>'admin', 'middleware' => 'auth'],function(){
 /sin variable Route::get('articles', function (){   ejemplo= localhost/articles
 /con variable Route::get('articles/{nombre?}', function ($nombre = "empty"){   ejemplo= localhost/articles/crear
 */
+
+//rutas para las carpetas de login
 
 route::get('admin/auth/login',[
 	'uses' 	=> 'Auth\AuthController@getLogin',
@@ -66,6 +84,7 @@ route::get('admin/auth/logout',[
 	'uses' 	=> 'Auth\AuthController@getLogout',
 	'as' 	=> 'admin.auth.logout'
 ]);
+
 
 Route::auth();
 

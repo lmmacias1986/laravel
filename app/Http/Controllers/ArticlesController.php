@@ -66,21 +66,27 @@ class ArticlesController extends Controller
     }
    	public function edit($id)
     {
-    	$categories = Category::orderby('name','ASC')->lists('name','id');
+    	$categories = Category::orderby('name','ASC')->lists('name','id');        
         $tags = Tag::orderby('name','ASC')->lists('name','id');
-        //$tags = Article::tags('name','ASC')->lists('name','id');
-
+        
         $articles = Article::find($id);
+
+        $articles->category;
+        $mytags = $articles->tags->lists('id')->toArray();  
+        
         return view('admin.articles.edit')
             ->with('articles',$articles)
             ->with('categories',$categories)
-            ->with('tags',$tags);
+            ->with('tags',$tags)
+            ->with('mytags',$mytags);
     }
    	public function update(Request $request , $id)
     {
     	$articulo = Article::find($id);
-        $articulo->name = $request->name;
+        $articulo->fill($request->all());
         $articulo->save();
+
+        $articulo->tags()->sync($request->tags);
 
         flash("El arcticulo ha sido actualizado exitosamente!", "success");
         return redirect()->route('admin.articles.index');

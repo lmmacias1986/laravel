@@ -2,14 +2,14 @@
 @section('title','Editar Artículo')
 @section('content')
 	
-	{!! Form::open(['route'=>['admin.articles.update', $articles->id], 'method'=>'PUT', 'files' => true]) !!}
+	{!! Form::open(['route'=>['admin.articles.update', $articles], 'method'=>'PUT']) !!}
 		<div class='form-group col-md-4 col-sm-6 col-xs-12'>
 			{!! Form::label('title','Título:') !!}
 			{!! Form::text('title', $articles->title, ['class'=>'form-control','required','placeholder'=>'Título del artículo']) !!}
 		</div>		
 		<div class='form-group col-md-4 col-sm-6 col-xs-12'>
 			{!! Form::label('category_id','Categoria:') !!}
-			{!! Form::select('category_id', $categories, $articles->category_id,['class'=>'form-control select-category','placeholder'=>'Categoria','required']) !!}
+			{!! Form::select('category_id', $categories, $articles->category->id,['class'=>'form-control select-category','placeholder'=>'Categoria','required']) !!}
 		</div>		
 		<div class='form-group col-md-12 col-sm-12 col-xs-12'>
 			{!! Form::label('content','Contenido:') !!}
@@ -17,7 +17,7 @@
 		</div>		
 		<div class='form-group col-md-4 col-sm-6 col-xs-12'>
 			{!! Form::label('tags','Tags:') !!}
-			{!! Form::select('tags[]', $tags, null,['class'=>'form-control select-tag','multiple','required']) !!}
+			{!! Form::select('tags[]', $tags, $mytags,['class'=>'form-control select-tag','multiple','required']) !!}
 		</div>
 		<div class='form-group col-md-4 col-sm-6 col-xs-12'>
 			{!! Form::label('image','Imagen:') !!}

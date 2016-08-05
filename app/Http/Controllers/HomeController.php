@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Article;
+use App\Image;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
@@ -22,8 +23,16 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        $articles = Article::search($request->name)->orderby('created_at','DESC')->paginate(6);
+        $articles->each(function($articles){
+            $articles->category;
+            $articles->user;
+            $articles->image = $articles->image()->lists('name')->toArray();
+        }); 
+
+        return view('home.index')
+        ->with('articles',$articles);
     }
 }
